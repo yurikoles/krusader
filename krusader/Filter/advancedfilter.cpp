@@ -38,10 +38,10 @@
 #include <QLabel>
 
 #include <KI18n/KLocalizedString>
-#include <KIconThemes/KIconLoader>
 #include <KWidgetsAddons/KMessageBox>
 
 #include "../krglobal.h"
+#include "../icon.h"
 #include "../Dialogs/krdialogs.h"
 
 #define USERSFILE  QString("/etc/passwd")
@@ -113,7 +113,7 @@ AdvancedFilter::AdvancedFilter(FilterTabs *tabs, QWidget *parent) : QWidget(pare
 
     // Options for date
 
-    QPixmap iconDate = krLoader->loadIcon("view-calendar", KIconLoader::Toolbar, 16);
+    Icon iconNameDate("view-calendar");
 
     QGroupBox *dateGroup = new QGroupBox(this);
     QButtonGroup *btnGroup = new QButtonGroup(dateGroup);
@@ -140,7 +140,7 @@ AdvancedFilter::AdvancedFilter(FilterTabs *tabs, QWidget *parent) : QWidget(pare
     modifiedBetweenBtn1 = new QToolButton(dateGroup);
     modifiedBetweenBtn1->setEnabled(false);
     modifiedBetweenBtn1->setText("");
-    modifiedBetweenBtn1->setIcon(QIcon(iconDate));
+    modifiedBetweenBtn1->setIcon(iconNameDate);
 
     QLabel *andLabel = new QLabel(dateGroup);
     andLabel->setText(i18n("an&d"));
@@ -153,7 +153,7 @@ AdvancedFilter::AdvancedFilter(FilterTabs *tabs, QWidget *parent) : QWidget(pare
     modifiedBetweenBtn2 = new QToolButton(dateGroup);
     modifiedBetweenBtn2->setEnabled(false);
     modifiedBetweenBtn2->setText("");
-    modifiedBetweenBtn2->setIcon(QIcon(iconDate));
+    modifiedBetweenBtn2->setIcon(iconNameDate);
 
     notModifiedAfterEnabled = new QRadioButton(dateGroup);
     notModifiedAfterEnabled->setText(i18n("&Not modified after"));
@@ -166,7 +166,7 @@ AdvancedFilter::AdvancedFilter(FilterTabs *tabs, QWidget *parent) : QWidget(pare
     notModifiedAfterBtn = new QToolButton(dateGroup);
     notModifiedAfterBtn->setEnabled(false);
     notModifiedAfterBtn->setText("");
-    notModifiedAfterBtn->setIcon(QIcon(iconDate));
+    notModifiedAfterBtn->setIcon(iconNameDate);
 
     modifiedInTheLastEnabled = new QRadioButton(dateGroup);
     modifiedInTheLastEnabled->setText(i18n("Mod&ified in the last"));
